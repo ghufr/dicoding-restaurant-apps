@@ -9,7 +9,7 @@ body {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 h1,
@@ -169,7 +169,7 @@ li {
 }
 
 .hero__img {
-  background-image: url("../public/images/heros/hero-image_1.jpg");
+  background-image: url('../public/images/heros/hero-image_1.jpg');
   background-position: 30% top;
   width: 100%;
   height: 100%;
@@ -319,14 +319,6 @@ li {
   p {
     font-size: 1em;
   }
-  .hero__overlay,
-  .hero__img {
-    border-radius: 12px;
-  }
-
-  .hero {
-    padding: 0 16px;
-  }
   .restos {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -355,5 +347,15 @@ li {
   .restos {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hero {
+    padding: 0 16px;
+  }
+  .hero__overlay,
+  .hero__img {
+    border-radius: 12px;
   }
 }
