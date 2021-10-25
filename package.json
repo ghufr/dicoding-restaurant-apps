@@ -9,7 +9,7 @@
     "test": "karma start"
   },
   "keywords": [],
-  "author": "your_name <your.email@domain.com>",
+  "author": "Ghufron Fikrianto <ghufronfr@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.5",
