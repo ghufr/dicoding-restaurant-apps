@@ -1,0 +1,25 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["airbnb-base"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["html"],
+  "rules": {
+    "no-underscore-dangle": "off",
+    "operator-linebreak": "off",
+    "class-methods-use-this": "off",
+    "object-curly-newline": "off",
+    "implicit-arrow-linebreak": "off",
+    "comma-dangle": "off"
+  }
+}

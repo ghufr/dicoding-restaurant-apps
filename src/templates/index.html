@@ -12,6 +12,9 @@
     />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#7952b3" />
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
   </head>
   <body>
     <a class="skip-to-content-link" href="#content"> Skip to content </a>
@@ -36,90 +39,17 @@
           </button>
           <nav id="drawer" class="nav">
             <ul class="nav__list">
-              <li class="nav__item"><a href="/">Home</a></li>
-              <li class="nav__item"><a href="#">Favorite</a></li>
-              <li class="nav__item"><a href="https://github.com/ghufr">About Us</a></li>
+              <li class="nav__item"><a href="/#">Home</a></li>
+              <li class="nav__item"><a href="/#/favorite">Favorite</a></li>
+              <li class="nav__item">
+                <a href="https://github.com/ghufr">About Us</a>
+              </li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
-    <main>
-      <div class="hero">
-        <div class="hero__container">
-          <div class="hero__overlay"></div>
-          <div class="hero__img"></div>
-          <div class="hero__inner">
-            <h2 class="hero__title">Introducing dResto</h2>
-            <p class="hero__description">
-              Finding <strong>Quality Restaurant</strong> with ease...
-            </p>
-            <a href="#content" class="btn btn__secondary">Explore Now</a>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <section id="content" class="content">
-          <div class="container">
-            <h2 class="explore__label">Explore Restaurant</h2>
-
-            <div class="restos">
-              <template class="resto-template">
-                <article class="resto-item">
-                  <img
-                    class="resto-item__thumbnail"
-                    src=""
-                    alt="Foto interior restoran"
-                  />
-                  <div class="resto-item__content">
-                    <h3 class="resto-item__title">
-                      <a href=""></a>
-                    </h3>
-                    <div class="resto-item__info">
-                      <p class="resto-item__rating">
-                        <span>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                          >
-                            <path
-                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                            />
-                          </svg>
-                        </span>
-                        <span class="sr-only">Rating </span>
-                        <span></span>
-                      </p>
-                      <p class="resto-item__location">
-                        <span class="sr-only">Lokasi di</span>
-                        <span
-                          ><svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                              clip-rule="evenodd"
-                            /></svg
-                        ></span>
-                        <span class="resto-item__location_label"></span>
-                      </p>
-                    </div>
-
-                    <p class="sr-only">Rating</p>
-
-                    <p class="resto-item__description"></p>
-                  </div>
-                </article>
-              </template>
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
+    <main></main>
     <footer class="footer">
       <div class="container">
         <p>copyright © 2021 - dResto</p>
