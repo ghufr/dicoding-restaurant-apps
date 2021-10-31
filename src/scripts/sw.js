@@ -1,6 +1,8 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable import/no-extraneous-dependencies */
 
+import { precacheAndRoute } from 'workbox-precaching';
+
 import {
   pageCache,
   imageCache,
@@ -10,6 +12,8 @@ import {
 
 import { StaleWhileRevalidate } from 'workbox-strategies';
 import config from './globals/config';
+
+precacheAndRoute(self.__WB_MANIFEST);
 
 pageCache();
 
