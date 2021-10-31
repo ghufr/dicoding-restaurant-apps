@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable import/no-extraneous-dependencies */
+import 'regenerator-runtime'; /* for async await transpile */
 
 import { precacheAndRoute } from 'workbox-precaching';
 
