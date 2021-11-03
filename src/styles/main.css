@@ -215,8 +215,10 @@ form label {
 }
 
 .hero__img {
-  background-image: url('../public/images/heros/hero-image_1.jpg');
+  background-image: url('../public/resized-images/hero-image_1-small.jpg');
   background-position: 30% top;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   height: 100%;
   top: 0;
@@ -272,6 +274,12 @@ form label {
 
 .resto-item__thumbnail {
   border-radius: 8px 8px 0 0;
+  width: 100%;
+  min-height: 248px;
+}
+
+.resto-item__thumbnail::before {
+  content: '';
   width: 100%;
 }
 
@@ -557,6 +565,9 @@ form label {
   }
   .resto-detail__review-item {
     flex: 0 0 25%;
+  }
+  .hero__img {
+    background-image: url('../public/resized-images/hero-image_1-large.jpg');
   }
 }
 

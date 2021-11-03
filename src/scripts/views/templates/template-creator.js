@@ -1,5 +1,11 @@
 import API_ENDPOINT from '../../globals/api-endpoint';
 
+const SIZES = {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large',
+};
+
 const createRestaurantInfo = (props) => {
   const { rating, location } = props;
 
@@ -40,16 +46,27 @@ const createRestaurantInfo = (props) => {
   `;
 };
 
+const _createPictureUrl = (size, pictureId) =>
+  `${API_ENDPOINT.PICTURE()}/${size}/${pictureId}`;
+
 const createRestaurantItemTemplate = (props) => {
   const { name, description, pictureId, city, rating, id } = props;
 
+  /* eslint-disable indent */
   return `
     <article class="resto-item">
-      <img
-        class="resto-item__thumbnail"
-        src="${API_ENDPOINT.PICTURE()}/small/${pictureId}"
-        alt="Foto interior restoran"
-      />
+      <picture>
+        <source media="(max-width: 1024px)" srcset="${_createPictureUrl(
+          SIZES.SMALL,
+          pictureId
+        )}">
+
+        <img
+          class="lazyload resto-item__thumbnail"
+          src="${_createPictureUrl(SIZES.MEDIUM, pictureId)}"
+          alt="Foto interior restoran"
+        />
+      </picture>
       <div class="resto-item__content">
         <h3 class="resto-item__title">
           <a href="/#/detail/${id}">${name}</a>
@@ -60,6 +77,7 @@ const createRestaurantItemTemplate = (props) => {
       </div>
     </article>
   `;
+  /* eslint-enable indent */
 };
 
 const _createRestaurantDetailMenus = (title, menus) => {
@@ -79,11 +97,11 @@ const _createRestaurantDetailReviews = (reviews) => {
   const reviewItems = reviews
     .map(
       ({ review, name, date }) => `
-    <div class="resto-detail__review-item">
-      <h4>${name}</h4>
-      <p class="review-item__description">${review}</p>
-      <p class="review-item__date">${date}</p>
-    </div>
+      <div class="resto-detail__review-item">
+        <h4>${name}</h4>
+        <p class="review-item__description">${review}</p>
+        <p class="review-item__date">${date}</p>
+      </div>
   `
     )
     .join('');
@@ -125,11 +143,26 @@ const createRestaurantDetailTemplate = (props) => {
   } = props;
 
   const location = `${city}, ${address}`;
-
+  /* eslint-disable indent */
   return `
     <div>
       <div class="resto-detail__container">
-        <img class="resto-detail__picture" src="${API_ENDPOINT.PICTURE()}/large/${pictureId}" alt="${name}"/>
+        <picture>
+          <source media="(max-width: 600px)" srcset="${_createPictureUrl(
+            SIZES.SMALL,
+            pictureId
+          )}">
+          <source media="(max-width: 1024px)" srcset="${_createPictureUrl(
+            SIZES.MEDIUM,
+            pictureId
+          )}">
+
+          <img
+            class="resto-detail__picture"
+            src="${_createPictureUrl(SIZES.LARGE, pictureId)}"
+            alt="Foto interior restoran"
+          />
+        </picture>
         <div class="resto-detail__content-container">
           <div class="resto-detail__header">
             <h2 class="resto-detail__title">${name}</h2>
@@ -160,15 +193,23 @@ const createRestaurantDetailTemplate = (props) => {
       </div>
     </div>
   `;
+  /* eslint-enable indent */
 };
 
-const createLikeButtonTemplate = (
-  isActive = false
-) => `<button id="likeButton" class="btn-icon ${
-  isActive ? 'active' : ''
-}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-<path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-</svg></button>`;
+const createLikeButtonTemplate = (isActive = false) => {
+  const buttonProps = {
+    className: isActive ? 'active' : '',
+    label: isActive ? 'Unlike this restaurant' : 'Like this restaurant',
+  };
+
+  return `
+    <button id="likeButton" aria-label="${buttonProps.label}"
+      class="btn-icon ${buttonProps.className}">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+      </svg>
+    </button>`;
+};
 
 // TODO: Create Proper placeholder
 const createRestaurantDetailPlaceholder = () => `
@@ -180,7 +221,6 @@ const createRestaurantDetailPlaceholder = () => `
         <div class="placeholder placeholder-description"></div>
         <div class="placeholder placeholder-description"></div>
         <div class="placeholder placeholder-description"></div>
-
       </div>
     </div>
   </div>
@@ -197,7 +237,6 @@ const createRestaurantItemPlaceholder = () => `
         <div class="placeholder placeholder-description"></div>
         <div class="placeholder placeholder-description"></div>
       </div>
-
     </div>
   `;
 

@@ -1,8 +1,15 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const { merge } = require('webpack-merge');
+// const ImageminWebpackPlugin = require('imagemin-webpack-plugin');
+// const ImageminMozjpeg = require('imagemin-mozjpeg');
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
   mode: 'production',
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -19,4 +26,18 @@ module.exports = merge(common, {
       },
     ],
   },
+  plugins: [
+    new ImageminWebpWebpackPlugin({
+      config: [
+        {
+          test: /\.(jpe?g|png)/,
+          options: {
+            quality: 50,
+          },
+        },
+      ],
+      overrideExtension: true,
+    }),
+    new BundleAnalyzerPlugin(),
+  ],
 });
