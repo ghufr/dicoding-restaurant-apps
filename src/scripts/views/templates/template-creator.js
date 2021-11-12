@@ -63,7 +63,7 @@ const createRestaurantItemTemplate = (props) => {
 
         <img
           class="lazyload resto-item__thumbnail"
-          src="${_createPictureUrl(SIZES.MEDIUM, pictureId)}"
+          data-src="${_createPictureUrl(SIZES.MEDIUM, pictureId)}"
           alt="Foto interior restoran"
         />
       </picture>
