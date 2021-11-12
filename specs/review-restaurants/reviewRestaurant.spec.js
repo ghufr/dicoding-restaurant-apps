@@ -9,6 +9,7 @@ describe('Reviewing a restaurant', () => {
 
   beforeAll(async () => {
     const { restaurants } = await RestaurantSource.restaurantList();
+    // eslint-disable-next-line prefer-destructuring
     restaurant = restaurants[0];
   });
 

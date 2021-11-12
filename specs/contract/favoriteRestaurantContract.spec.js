@@ -43,4 +43,5 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
   });
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { itActsAsFavoriteRestaurantModel };

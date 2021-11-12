@@ -131,7 +131,6 @@ const createRestaurantDetailReviewForm = (id = '') => `
 
 const createRestaurantDetailTemplate = (props) => {
   const {
-    id,
     name,
     description,
     pictureId,
