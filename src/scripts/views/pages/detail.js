@@ -6,7 +6,9 @@ import {
   createRestaurantDetailTemplate,
 } from '../templates/template-creator';
 
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
+import FavoriteRestaurantIdb from '../../data/favourite-restaurant-idb';
+import FormReviewPresenter from '../../utils/review-form-presenter';
 
 const Detail = {
   async render() {
@@ -41,23 +43,17 @@ const Detail = {
     }
 
     restoDetailContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
-    LikeButtonInitiator.init({
+
+    LikeButtonPresenter.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      favoriteRestaurant: FavoriteRestaurantIdb,
       restaurant,
     });
 
-    const formReview = document.querySelector('#form-review');
-    formReview.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const { id, name, review } = e.target;
-
-      await RestaurantSource.restaurantAddReview({
-        id: id.value,
-        name: name.value,
-        review: review.value,
-      });
-      name.value = '';
-      review.value = '';
+    FormReviewPresenter.init({
+      reviewFormContainer: document.querySelector('#form-review-container'),
+      restaurantModel: RestaurantSource,
+      restaurant,
     });
   },
 };

@@ -111,9 +111,9 @@ const _createRestaurantDetailReviews = (reviews) => {
   </div>`;
 };
 
-const _createRestaurantDetailReviewForm = (id) => `
+const createRestaurantDetailReviewForm = (id = '') => `
     <form id="form-review">
-      <input name="id" value=${id} hidden/>
+      <input name="id" value="${id}" hidden required/>
       <div class="form__item">
         <label for="name">Name</label>
         <input class="input" name="name" type="text" required/>
@@ -189,7 +189,7 @@ const createRestaurantDetailTemplate = (props) => {
           ${_createRestaurantDetailReviews(customerReviews)}
         </div>
         <h3 class="resto-detail__reviews-label">Add Your Review</h3>
-        ${_createRestaurantDetailReviewForm(id)}
+        <div id="form-review-container"></div>
       </div>
     </div>
   `;
@@ -255,4 +255,5 @@ export {
   createRestaurantDetailPlaceholder,
   createRestaurantItemPlaceholder,
   createErrorMessageTemplate,
+  createRestaurantDetailReviewForm,
 };

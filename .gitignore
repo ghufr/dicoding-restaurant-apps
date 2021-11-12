@@ -1,3 +1,4 @@
 node_modules
 dist
 resized-images
+e2e/output

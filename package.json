@@ -8,6 +8,7 @@
     "build": "webpack --config webpack.prod.js",
     "build-image": "node ./resize-image.js",
     "test": "karma start",
+    "e2e": "codeceptjs run --steps",
     "lint": "eslint ."
   },
   "keywords": [],
