@@ -215,7 +215,8 @@ form label {
 }
 
 .hero__img {
-  background-image: url('../public/resized-images/hero-image_1-small.jpg');
+  background-image: url('../public/resized-images/hero-image_1-small.webp'),
+    url('../public/resized-images/hero-image_1.jpg');
   background-position: 30% top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -567,7 +568,7 @@ form label {
     flex: 0 0 25%;
   }
   .hero__img {
-    background-image: url('../public/resized-images/hero-image_1-large.jpg');
+    background-image: url('../public/resized-images/hero-image_1-large.webp');
   }
 }
 

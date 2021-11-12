@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "ghufr-26532"
+  },
+  "targets": {
+    "ghufr-26532": {
+      "hosting": {
+        "ghufr-26532": [
+          "dicoding-restaurants"
+        ]
+      }
+    }
   }
 }
