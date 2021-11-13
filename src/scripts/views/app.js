@@ -15,6 +15,11 @@ class App {
   }
 
   _initialAppShell() {
+    // Handle skip to content button
+    document.querySelector('#skip-button').addEventListener('click', (e) => {
+      document.querySelector('#content').scrollIntoView();
+      e.target.blur();
+    });
     DrawerInitiator.init({
       button: this._button,
       drawer: this._drawer,

@@ -56,7 +56,7 @@ const createRestaurantItemTemplate = (props) => {
   return `
     <article class="resto-item">
       <picture>
-        <source media="(max-width: 1024px)" srcset="${_createPictureUrl(
+        <source media="(max-width: 1024px)" data-srcset="${_createPictureUrl(
           SIZES.SMALL,
           pictureId
         )}">
